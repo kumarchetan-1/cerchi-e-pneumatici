@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .content-wrapper {
+            max-width: 1290px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero-content-wrapper {
+            max-width: 1046px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h2 {
+            margin: 0;
+            margin-bottom: 20px;
+            color: var(--CeP-black, #2A1616);
+            text-align: center;
+            font-family: Lato;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 103.8%;
+            /* 33.216px */
+            text-transform: uppercase;
+        }
+
+        h3 {
+            margin: 0;
+            margin-bottom: 18px;
+            color: #212121;
+            text-align: center;
+            font-family: Lato;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 30px;
+            /* 125% */
+            text-transform: uppercase;
+        }
+
+        p {
+            margin: 0;
+            margin-bottom: 15px;
+            color: var(--CeP-black, #2A1616);
+            text-align: center;
+            font-family: Lato;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 150%;
+            /* 21px */
+        }
+
+        section.hero-search-section {
+            background-image: url(./hero-car-2x-orig.webp);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 80px 0;
+            height: 80vh;
+            box-sizing: border-box;
+        }
+
+        .hero-search-section select.mobile-select,
+        .search-tabs li.search-tab {
+            color: var(--CeP-black, #2A1616);
+            font-family: Lato;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            letter-spacing: 0.32px;
+            text-transform: uppercase;
+            padding: 20px 32px;
+        }
+
+        ul.top-tabs {
+            list-style: none;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0;
+            gap: 15px;
+            background: #FAFAFA;
+            border-radius: 10px 10px 0 0;
+        }
+
+        li.search-tab.active {
+            background-color: red;
+            border-bottom: 2px solid #E11113;
+            background: #FFE3E3;
+        }
+
+        .search-filters {
+            border-radius: 0px 0px 10px 10px;
+            border: 1px solid #E0E0E0;
+            background: #FAFAFA;
+            padding: 32px;
+        }
+
+        legend,
+        label {
+            color: var(--CeP-black, #2A1616);
+            font-family: Lato;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+
+        .hero-search-section select.mobile-select {
+            width: 100%;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
+            appearance: none;
+        }
+
+        .row1 {
+            display: flex;
+            gap: 4%;
+        }
+
+        .col3 {
+            flex-basis: 24%;
+        }
+
+        .col6 {
+            flex-basis: 48%;
+        }
+
+        .col {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .hero-search-section select {
+            padding: 10px;
+            border: 1px solid #F4F4F4;
+            background: #FFF;
+        }
+
+        section.hero-search-section fieldset {
+            padding: 0;
+            margin: 0;
+            border: none;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .justify-center {
+            justify-content: space-between;
+        }
+
+        .brand-radio {
+            padding: 12px 0;
+        }
+
+        /* Button-style */
+        button.filter-button {
+            color: #FFF;
+            font-family: Lato;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            text-transform: uppercase;
+            background: #E11113;
+            padding: 15px 45px;
+            text-align: center;
+            border: 1px solid #E11113;
+            cursor: pointer;
+            box-sizing: border-box;
+            display: inline-block;
+            transition: all 0.3s ease-in-out;
+        }
+
+        button.filter-button:hover {
+            background: transparent;
+            color: #E11113;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .row-2 {
+            display: flex;
+            justify-content: center;
+            margin-top: 24px;
+        }
+
+        /* Radio Buttons */
+        input[type="radio"] {
+            appearance: none;
+            margin: 0;
+            padding-left: 22px;
+            position: relative;
+        }
+
+        input[type="radio"]:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: -16px;
+            width: 18px;
+            height: 18px;
+            border: 2px solid #E11113;
+            border-radius: 50%;
+            bottom: 0;
+        }
+
+        input[type="radio"]:checked:after {
+            content: "";
+            position: absolute;
+            left: 5px;
+            width: 12px;
+            height: 12px;
+            background: #E11113;
+            border-radius: 100%;
+            top: -11px;
+        }
+
+        .mobile-select {
+            display: none;
+        }
+
+        /* Hide filters by default */
+        .search-filters .filter {
+            display: none;
+        }
+
+        input#input-text-tab-4 {
+            border: 1px solid #F4F4F4;
+            background: #FFF;
+            color: #A6A6A6;
+            font-family: Lato;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            padding: 10px;
+            width: 90%;
+        }
+
+        .flex.align-middle {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (max-width: 1000px) {
+            .row1 .col3 {
+                flex-basis: 48%;
+                margin-bottom: 20px;
+            }
+
+            .search-tabs li.search-tab {
+                padding: 20px 20px;
+            }
+
+            .row1 .col6 {
+                flex-basis: 80%;
+            }
+
+            .row1 {
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .mobile-select {
+                display: block;
+            }
+
+            ul.top-tabs {
+                display: none;
+            }
+
+            .row1 .col6 {
+                flex-basis: 100%;
+            }
+
+            .search-filters {
+                padding: 32px 15px;
+            }
+
+            .flex {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .search-tabs li.search-tab {
+                padding-right: 20px;
+                padding-left: 15px;
+            }
+
+            .top-tabs {
+                gap: 0;
+                flex-wrap: wrap;
+            }
+
+            .filter-2 .col3:has(select#diametro-del-raggio) {
+                flex-basis: 100%;
+            }
+
+            .filter.filter-4 .row1 {
+                gap: 20px;
+                align-items: center;
+            }
+
+            .filter.filter-4 .col3,
+            .filter.filter-4 .col6,
+            .filter.filter-4 .col {
+                flex-basis: 100%;
+                text-align: center;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 520px) {
+
+            .row1 .col3,
+            .row1 .col6 {
+                flex-basis: 100%;
+            }
+        }
+
+        /* Three Columns */
+
+        section.three-columns {
+            padding: 50px 0;
+        }
+
+        .title-conta {
+    margin-bottom: 50px;
+}
+
+        .three-col-adjust {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            /* Adjust alignment as needed */
+        }
+
+        .card-conta {
+            flex: 0 1 calc(33.33% - 20px);
+            /* Adjust width and margins as needed */
+            margin-bottom: 20px;
+            /* Add some space between cards */
+            text-align: center;
+        }
+
+        .card-conta .image-conta {
+            text-align: center;
+            /* Center image if needed */
+            padding: 20px 0;
+            /* Adjust padding as needed */
+        }
+
+        .card-conta .image-conta img {
+            max-width: 100%;
+            /* Ensure image fits within container */
+        }
+
+        .card-conta .text-conta {
+            padding: 20px;
+            /* Add padding around text */
+        }
+
+        @media only screen and (max-width: 768px) {
+            .card-conta {
+                flex-basis: calc(50% - 20px);
+                /* Adjust width for smaller screens */
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .card-conta {
+                flex-basis: 100%;
+                /* Full width for extra small screens */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="hero-search-section">
+        <div class="hero-content-wrapper">
+            <div class="search-tabs">
+                <div class="menu-container">
+                    <ul class="top-tabs">
+                        <li class="search-tab" data-filter="filter-1">PNEUMATICI AUTO</li>
+                        <li class="search-tab" data-filter="filter-2">PNEUMATICI MOTO</li>
+                        <li class="search-tab" data-filter="filter-3">CERCHI AUTO</li>
+                        <li class="search-tab" data-filter="filter-4">RICERCA VELOCE</li>
+                    </ul>
+                    <select class="mobile-select">
+                        <option value="filter-1">PNEUMATICI AUTO</option>
+                        <option value="filter-2">PNEUMATICI MOTO</option>
+                        <option value="filter-3">CERCHI AUTO</option>
+                        <option value="filter-4">RICERCA VELOCE</option>
+                    </select>
+                </div>
+                <div class="search-filters">
+                    <div class="filter filter-1">
+                        <form action="" id="filter-1-form">
+                            <div class="row1">
+                                <div class="col3">
+                                    <div class="col">
+                                        <label for="stagione">Stagione</label>
+                                        <select name="Stagione" id="stagione">
+                                            <option value="type1">Invernale</option>
+                                            <option value="type2">Type 2</option>
+                                            <option value="type3">Type 3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col3">
+                                    <div class="col">
+                                        <label for="battistrada">Battistrada</label>
+                                        <select name="Battistrada" id="battistrada">
+                                            <option value="type1">-Tutti-</option>
+                                            <option value="type2">Type 2</option>
+                                            <option value="type3">Type 3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col3">
+                                    <div class="col">
+                                        <label for="spalla">Spalla</label>
+                                        <select name="Spalla " id="spalla">
+                                            <option value="type1">-Tutti-</option>
+                                            <option value="type2">Type 2</option>
+                                            <option value="type3">Type 3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col3">
+                                    <div class="col">
+                                        <label for="diametro-del-raggio">Diametro del raggio</label>
+                                        <select name="Diametro del raggio " id="diametro-del-raggio">
+                                            <option value="type1">-Tutti-</option>
+                                            <option value="type2">Type 2</option>
+                                            <option value="type3">Type 3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col3">
+                                    <div class="col">
+                                        <label for="marca">Marca</label>
+                                        <select name="Marca " id="marca">
+                                            <option value="type1">-Tutti-</option>
+                                            <option value="type2">Type 2</option>
+                                            <option value="type3">Type 3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-2">
+                                <button class="search-button filter-button">AVVIA LA RICERCA</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="filter filter-2">
+                        <form action="" id="filter-2-form">
+                            <div class="row1">
+                                <div class="col3">
+                                    <div class="col">
+                                        <label for="battistrada">Battistrada</label>
+                                        <select name="Battistrada" id="battistrada">
+                                            <option value="type1">-Tutti-</option>
+                                            <option value="type2">Type 2</option>
+                                            <option value="type3">Type 3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col3">
+                                    <div class="col">
+                                        <label for="spalla">Spalla</label>
+                                        <select name="Spalla " id="spalla">
+                                            <option value="type1">-Tutti-</option>
+                                            <option value="type2">Type 2</option>
+                                            <option value="type3">Type 3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col3">
+                                    <div class="col">
+                                        <label for="diametro-del-raggio">Diametro del raggio</label>
+                                        <select name="Diametro del raggio " id="diametro-del-raggio">
+                                            <option value="type1">-Tutti-</option>
+                                            <option value="type2">Type 2</option>
+                                            <option value="type3">Type 3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col6">
+                                    <div class="col">
+                                        <label for="marca">Marca</label>
+                                        <select name="Marca " id="marca">
+                                            <option value="type1">-Tutti-</option>
+                                            <option value="type2">Type 2</option>
+                                            <option value="type3">Type 3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-2">
+                                <button class="search-button filter-button">AVVIA LA RICERCA</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="filter filter-3">
+                        <form action="" id="filter-3-form">
+                            <div class="row1">
+                                <div class="col3">
+                                    <div class="col">
+                                        <label for="auto-tyre">Modello Auto</label>
+                                        <select name="Auto Tyre Type" id="auto-tyre">
+                                            <option value="type1">Type 1</option>
+                                            <option value="type2">Type 2</option>
+                                            <option value="type3">Type 3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col3">
+                                    <div class="col">
+                                        <label for="circle-diameter">Diametro cerchio</label>
+                                        <select name="Circle Diameter" id="circle-diameter">
+                                            <option value="type1">Type 1</option>
+                                            <option value="type2">Type 2</option>
+                                            <option value="type3">Type 3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col6">
+                                    <fieldset>
+                                        <legend>Marca</legend>
+                                        <div class="flex justify-center">
+                                            <div class="brand-radio">
+                                                <input type="radio" name="brand" id="mak-wheels" value="mak-wheels">
+                                                <label for="mak-wheels">Mak Wheels</label>
+                                            </div>
+                                            <div class="brand-radio">
+                                                <input type="radio" name="brand" id="msw-by-oz" value="msw-by-oz">
+                                                <label for="msw-by-oz">MSW BY OZ</label>
+                                            </div>
+                                            <div class="brand-radio">
+                                                <input type="radio" name="brand" id="oz-racing" value="oz-racing">
+                                                <label for="oz-racing">OZ RACING</label>
+                                            </div>
+                                            <div class="brand-radio">
+                                                <input type="radio" name="brand" id="sparko" value="sparko">
+                                                <label for="sparko">SPARCO</label>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="row-2">
+                                <button class="search-button filter-button">SEARCH</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="filter filter-4">
+                        <form action="" id="filter-3-form">
+                            <div class="row1">
+                                <div class="col3">
+                                    <div class="col">
+                                        <img src="./f1-tyres-logo.svg" alt="F1 Tyres Logo" style="max-width: 218px;">
+                                    </div>
+                                </div>
+                                <div class="col6">
+                                    <div class="flex align-middle">
+                                        <input type="text" name="search-text"
+                                            placeholder="Cerca per dimensione gomma senza spazi. Esempio: 2055516"
+                                            id="input-text-tab-4">
+                                    </div>
+                                </div>
+                                <div class="col3">
+                                    <div class="flex align-middle">
+                                        <button class="search-button filter-button">CERCA</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="three-columns">
+        <div class="content-wrapper">
+            <div class="title-conta">
+                <h2>WHY US?</h2>
+            </div>
+            <div class="three-col-adjust">
+                <div class="card-conta">
+                    <div class="image-conta">
+                        <img src="./tools.svg" alt="Tools">
+                    </div>
+                    <div class="text-conta">
+                        <h3>Be confident in
+                            the product quality</h3>
+                        <p>We committed to delivering products of the highest quality, verified to meet stringent
+                            standards, ensuring your complete satisfaction with every purchase</p>
+                    </div>
+                </div>
+                <div class="card-conta">
+                    <div class="image-conta">
+                        <img src="./support-person.svg" alt="Support Person">
+                    </div>
+                    <div class="text-conta">
+                        <h3>We are always ready to help</h3>
+                        <p>Our dedicated team is ready to assist you with prompt, friendly, and knowledgeable service,
+                            ensuring a seamless and satisfying shopping experience</p>
+                    </div>
+                </div>
+                <div class="card-conta">
+                    <div class="image-conta">
+                        <img src="./tyre.svg" alt="Tyre">
+                    </div>
+                    <div class="text-conta">
+                        <h3>Find what you are
+                            looking for</h3>
+                        <p>Discover a vast and diverse selection on our website, where you can find anything you're
+                            looking for</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const searchTabs = document.querySelectorAll('.search-tab');
+            const filters = document.querySelectorAll('.filter');
+
+            // Function to show selected filter and add active class
+            function showFilter(filterId) {
+                filters.forEach(function (filter) {
+                    filter.style.display = 'none';
+                });
+                const filterToShow = document.querySelector(`.${filterId}`);
+                if (filterToShow) {
+                    filterToShow.style.display = 'block';
+                }
+            }
+
+            // Function to add active class to selected search tab
+            function setActiveTab(tab) {
+                searchTabs.forEach(function (tab) {
+                    tab.classList.remove('active');
+                });
+                tab.classList.add('active');
+            }
+
+            // Show default filter initially (first filter)
+            const defaultFilterId = 'filter-3'; // Adjust the class name of the default filter as needed
+            showFilter(defaultFilterId);
+            const defaultTab = document.querySelector(`.search-tab[data-filter="${defaultFilterId}"]`);
+            if (defaultTab) {
+                setActiveTab(defaultTab);
+            }
+
+            // Show filter and add active class when search tab is clicked
+            searchTabs.forEach(function (tab) {
+                tab.addEventListener('click', function () {
+                    const filterId = tab.getAttribute('data-filter');
+                    showFilter(filterId);
+                    setActiveTab(tab);
+                });
+            });
+
+            // Show filter when option is selected from mobile select
+            const mobileSelect = document.querySelector('.mobile-select');
+            mobileSelect.addEventListener('change', function () {
+                const selectedFilterId = this.value;
+                showFilter(selectedFilterId);
+                const selectedTab = document.querySelector(
+                    `.search-tab[data-filter="${selectedFilterId}"]`);
+                if (selectedTab) {
+                    setActiveTab(selectedTab);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
